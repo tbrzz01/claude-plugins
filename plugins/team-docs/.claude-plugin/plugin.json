@@ -1,0 +1,28 @@
+{
+  "name": "team-docs",
+  "version": "0.1.0",
+  "description": "Team member profiles, GitHub/Jira activity sync, and documentation tooling.",
+  "author": {
+    "name": "Trey Briggs"
+  },
+  "repository": "https://github.com/tbrzz01/claude-plugins",
+  "keywords": [
+    "team",
+    "documentation",
+    "github",
+    "jira",
+    "onboarding"
+  ],
+  "skills": [
+    "./skills/new-team-member",
+    "./skills/update-team",
+    "./skills/docs-hub",
+    "./skills/link-docs",
+    "./skills/feature-deep-dive"
+  ],
+  "agents": [
+    "./agents/doc-health.md",
+    "./agents/knowledge-graph.md",
+    "./agents/pr-monitor.md"
+  ]
+}

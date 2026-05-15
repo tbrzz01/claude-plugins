@@ -1,0 +1,27 @@
+{
+  "name": "weekly-planning",
+  "version": "0.1.0",
+  "description": "Weekly plans, action tracking, goal alignment, and meeting processing.",
+  "author": {
+    "name": "Trey Briggs"
+  },
+  "repository": "https://github.com/tbrzz01/claude-plugins",
+  "keywords": [
+    "productivity",
+    "planning",
+    "okr",
+    "weekly-review",
+    "action-items"
+  ],
+  "skills": [
+    "./skills/new-week",
+    "./skills/track-actions",
+    "./skills/personal-goals",
+    "./skills/process-meeting"
+  ],
+  "agents": [
+    "./agents/weekly-review.md",
+    "./agents/strategic-planning.md",
+    "./agents/meeting-intelligence.md"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "trey-plugins",
+  "owner": {
+    "name": "Trey Briggs"
+  },
+  "plugins": [
+    {
+      "name": "weekly-planning",
+      "description": "Weekly plans, action tracking, goal alignment, and meeting processing",
+      "source": "./plugins/weekly-planning"
+    },
+    {
+      "name": "team-docs",
+      "description": "Team member profiles, GitHub/Jira activity sync, and documentation tooling",
+      "source": "./plugins/team-docs"
+    },
+    {
+      "name": "engineering-helpers",
+      "description": "Defect analysis, full-stack feature implementation, and support bug resolution",
+      "source": "./plugins/engineering-helpers"
+    }
+  ]
+}

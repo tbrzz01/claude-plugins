@@ -1,0 +1,22 @@
+{
+  "name": "engineering-helpers",
+  "version": "0.1.0",
+  "description": "Defect analysis, full-stack feature implementation, and support bug resolution.",
+  "author": {
+    "name": "Trey Briggs"
+  },
+  "repository": "https://github.com/tbrzz01/claude-plugins",
+  "keywords": [
+    "engineering",
+    "debugging",
+    "defect-analysis",
+    "support"
+  ],
+  "skills": [
+    "./skills/defect-analysis"
+  ],
+  "agents": [
+    "./agents/full-stack-implementer.md",
+    "./agents/support-bug-resolver.md"
+  ]
+}
