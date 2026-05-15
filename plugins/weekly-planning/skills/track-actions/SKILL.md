@@ -15,6 +15,18 @@ description: |
   </example>
 ---
 
+## Setup: Resolve Config Paths
+
+Before any file operation, resolve `{placeholder}` references in this file:
+
+1. Read `plugins/weekly-planning/config.local.json` (fall back to `config.example.json` if missing).
+2. Substitute each `{placeholder}` with the matching key from the config. Top-level keys (e.g. `docs_root`, `templates_root`, `personal_root`) and `subpaths` keys (e.g. `weekly_plans`, `meeting_notes`, `hub`, `teammembers`, `myteam_index`, `notes_template`, `goals_file`) are valid.
+3. Subpath values may themselves reference `{docs_root}` etc. — expand recursively.
+4. Tilde (`~`) at the start of a path expands to `$HOME`.
+
+If `config.local.json` is missing, tell the user to copy `config.example.json` to `config.local.json` and fill in their paths before continuing.
+
+
 # Track Actions Skill
 
 ## Description
@@ -30,7 +42,7 @@ Scans recent weekly plans to extract all open action items, calculates their age
 ### Phase 1: Locate and Read Weekly Plans
 
 1. **Find Weekly Plan Folders**
-   - Directory: `/Users/trey.briggs/Code/documentation/work/udemy/Weekly Plan/`
+   - Directory: `{weekly_plans}/`
    - List all subdirectories matching pattern: `YYYY-MM-DD/` (e.g., `2026-02-09/`)
    - Sort by folder name (descending) to get most recent first
 
@@ -57,7 +69,7 @@ Scans recent weekly plans to extract all open action items, calculates their age
    - **Category/Project**: Often marked with `**Category**:` format
      - Examples: `**Labs**:`, `**GwG**:`, `**Review**:`, `**Agentic AI**:`
    - **Owner**: Look for names or team indicators
-     - Explicit: "Jason:", "Diby:", "Charles:"
+     - Explicit: "Jordan:", "Riley:", "Sam:"
      - Implied: If in a specific day section, likely owned by the user
    - **Links**: Any URLs in the task description
    - **Context**: Which day section it appears in (Monday, Tuesday, etc.)
@@ -103,13 +115,13 @@ Scans recent weekly plans to extract all open action items, calculates their age
 
 1. **Group by Owner**
    - Extract owner from task description or context
-   - Default owner: The user (Trey Briggs) if not specified
-   - Use team roster to validate names: `/Users/trey.briggs/Code/documentation/work/udemy/teammembers/myteam.md`
+   - Default owner: The user (Alex Chen) if not specified
+   - Use team roster to validate names: `{myteam_index}`
    - Group tasks by:
-     - Trey Briggs (self)
-     - Jason Diaz
-     - Charles Pham
-     - Dibyendu Tiwari (Diby)
+     - Alex Chen (self)
+     - Jordan Patel
+     - Sam Lee
+     - Riley Kim (Riley)
      - Other team members
      - Unassigned
 
@@ -153,11 +165,11 @@ Scanned: {number} weekly plans from {earliest date} to {latest date}
 ```markdown
 ## By Owner
 
-### Trey Briggs ({count} items)
+### Alex Chen ({count} items)
 - [ ] **{Category}**: {Task description} ({age} old) - [Week {date}](/path/to/plan.md)
 - [ ] **{Category}**: {Task description} ({age} old) - [Week {date}](/path/to/plan.md)
 
-### Jason Diaz ({count} items)
+### Jordan Patel ({count} items)
 - [ ] **{Category}**: {Task description} ({age} old) - [Week {date}](/path/to/plan.md)
 
 ### [Other team members...]

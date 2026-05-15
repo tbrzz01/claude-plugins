@@ -7,37 +7,37 @@
 TASK="$1"
 CONTEXT="$2"
 
-# Define team members and their domains
+# Example team-member to domain mapping. Edit for your team.
 declare -A TEAM_DOMAINS
-TEAM_DOMAINS["trey"]="labs|learning|architecture|strategy|ownership"
-TEAM_DOMAINS["jason"]="skills enablement|frontend|gwg|cte"
-TEAM_DOMAINS["charles"]="labs|technical skills experiences"
-TEAM_DOMAINS["diby"]="labs|technical skills mastery|aws|vocareum"
-TEAM_DOMAINS["eyupcan"]="architecture|migration|monolith"
+TEAM_DOMAINS["alex"]="labs|learning|architecture|strategy|ownership"
+TEAM_DOMAINS["jordan"]="skills enablement|frontend|gwg|cte"
+TEAM_DOMAINS["sam"]="labs|technical skills experiences"
+TEAM_DOMAINS["riley"]="labs|technical skills mastery|aws|vocareum"
+TEAM_DOMAINS["casey"]="architecture|migration|monolith"
 
 # Check for explicit ownership patterns
-if echo "$TASK" | grep -iq "trey will\|trey:\|trey -\|trey should"; then
-    echo "Trey Briggs"
+if echo "$TASK" | grep -iq "alex will\|alex:\|alex -\|alex should"; then
+    echo "Alex Chen"
     exit 0
 fi
 
-if echo "$TASK" | grep -iq "jason will\|jason:\|jason -\|jason should"; then
-    echo "Jason Diaz"
+if echo "$TASK" | grep -iq "jordan will\|jordan:\|jordan -\|jordan should"; then
+    echo "Jordan Patel"
     exit 0
 fi
 
-if echo "$TASK" | grep -iq "charles will\|charles:\|charles -\|charles should"; then
-    echo "Charles Pham"
+if echo "$TASK" | grep -iq "sam will\|sam:\|sam -\|sam should"; then
+    echo "Sam Lee"
     exit 0
 fi
 
-if echo "$TASK" | grep -iq "diby will\|diby:\|diby -\|diby should\|dibyendu"; then
-    echo "Dibyendu Tiwari"
+if echo "$TASK" | grep -iq "riley will\|riley:\|riley -\|riley should"; then
+    echo "Riley Kim"
     exit 0
 fi
 
-if echo "$TASK" | grep -iq "eyupcan will\|eyupcan:\|eyupcan -\|eyupcan should"; then
-    echo "Eyupcan Bodur"
+if echo "$TASK" | grep -iq "casey will\|casey:\|casey -\|casey should"; then
+    echo "Casey Park"
     exit 0
 fi
 
@@ -48,11 +48,11 @@ for person in "${!TEAM_DOMAINS[@]}"; do
     domains="${TEAM_DOMAINS[$person]}"
     if echo "$TASK_LOWER" | grep -Eq "$domains"; then
         case "$person" in
-            trey) echo "Trey Briggs"; exit 0 ;;
-            jason) echo "Jason Diaz"; exit 0 ;;
-            charles) echo "Charles Pham"; exit 0 ;;
-            diby) echo "Dibyendu Tiwari"; exit 0 ;;
-            eyupcan) echo "Eyupcan Bodur"; exit 0 ;;
+            alex) echo "Alex Chen"; exit 0 ;;
+            jordan) echo "Jordan Patel"; exit 0 ;;
+            sam) echo "Sam Lee"; exit 0 ;;
+            riley) echo "Riley Kim"; exit 0 ;;
+            casey) echo "Casey Park"; exit 0 ;;
         esac
     fi
 done

@@ -16,6 +16,18 @@ description: |
 version: 1.0.0
 ---
 
+## Setup: Resolve Config Paths
+
+Before any file operation, resolve `{placeholder}` references in this file:
+
+1. Read `plugins/weekly-planning/config.local.json` (fall back to `config.example.json` if missing).
+2. Substitute each `{placeholder}` with the matching key from the config. Top-level keys (e.g. `docs_root`, `templates_root`, `personal_root`) and `subpaths` keys (e.g. `weekly_plans`, `meeting_notes`, `hub`, `teammembers`, `myteam_index`, `notes_template`, `goals_file`) are valid.
+3. Subpath values may themselves reference `{docs_root}` etc. — expand recursively.
+4. Tilde (`~`) at the start of a path expands to `$HOME`.
+
+If `config.local.json` is missing, tell the user to copy `config.example.json` to `config.local.json` and fill in their paths before continuing.
+
+
 # Process Meeting Skill
 
 ## Description
@@ -69,7 +81,7 @@ Transforms meeting transcripts into structured, actionable documentation by extr
 
 3. **Infer Owners**
    Rules for determining ownership:
-   - **Explicit**: "Trey will create the document"
+   - **Explicit**: "Alex will create the document"
    - **Implied by role**: "PM should review" → assign to PM attendee
    - **Implied by domain**: "Update the labs document" → assign to person working on labs
    - **Default**: If unclear, mark as "Unassigned" or assign to meeting organizer
@@ -128,7 +140,7 @@ Transforms meeting transcripts into structured, actionable documentation by extr
 ### Phase 5: Generate Structured Output
 
 1. **Use Notes Template**
-   Load template from: `/Users/trey.briggs/Code/documentation/templates/notes.md`
+   Load template from: `{templates_root}/notes.md`
 
    Template structure:
    ```yaml
@@ -324,7 +336,7 @@ links:
 
 # Skills Journey Architecture Review
 **Date:** February 9, 2026
-**Attendees:** Trey Briggs, Nishanth, Jason Diaz, Martin B, Eyupcan Bodur
+**Attendees:** Alex Chen, Avery, Jordan Patel, Taylor, Casey Park
 **Context:** Review of Skills Journey project architecture and team ownership clarification
 
 ## Goals
@@ -337,7 +349,7 @@ links:
   - **Rationale**: Aligns with core competencies and existing ownership patterns
   - **Alternatives**: Single team ownership (rejected due to skill gaps), shared ownership (too complex)
   - **Impact**: Clear boundaries enable parallel work streams
-  - **Decided by**: Trey, Nishanth, Martin
+  - **Decided by**: Alex, Avery, Taylor
 
 - **Decision**: Postpone GraphQL layer until client needs are clearer
   - **Rationale**: Avoid premature optimization, iterate based on actual usage
@@ -345,22 +357,22 @@ links:
   - **Impact**: Reduces Q1 scope, enables faster skill library delivery
 
 ## Action Items
-- [ ] **Trey**: Work with relevant leadership to define and clarify team ownership for each major component
+- [ ] **Alex**: Work with relevant leadership to define and clarify team ownership for each major component
     - Deadline: Next week
     - Context: Create architecture diagram with team boundaries
     - Link: Related to Skills Journey roadmap
-- [ ] **Nishanth**: Share skill library and roadmap documents with the group
+- [ ] **Avery**: Share skill library and roadmap documents with the group
     - Deadline: This week
     - Context: Enable team review and feedback
-- [ ] **Nishanth**: Continue working with Okan and Ahmad's team to productionize skill library
+- [ ] **Avery**: Continue working with Jamie and Ahmad's team to productionize skill library
     - Deadline: Q1
     - Context: Define data models and service needs
-- [ ] **Trey**: Catch up with Martin and others to get feedback on architecture
+- [ ] **Alex**: Catch up with Taylor and others to get feedback on architecture
     - Deadline: Next week
     - Context: Validate ownership boundaries and approach
 
 ## Next Steps
-- Follow-up meeting with Anisha, Jason, Austin, Martin to clarify contracts between teams (Week of Feb 16)
+- Follow-up meeting with Anisha, Jordan, Austin, Taylor to clarify contracts between teams (Week of Feb 16)
 - Architecture diagram creation and review (Feb 11-13)
 - Begin milestone 5 work on skill library productionalization (Q1)
 

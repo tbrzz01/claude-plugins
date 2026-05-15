@@ -3,3 +3,7 @@
 .idea/
 .vscode/
 node_modules/
+
+# Per-plugin local config (paths and other machine-specific values).
+# Commit config.example.json; never commit config.local.json.
+plugins/*/config.local.json

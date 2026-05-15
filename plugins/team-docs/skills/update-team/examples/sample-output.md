@@ -10,7 +10,7 @@ This is an example of what the update-team skill outputs.
 🔄 Updating team member profiles...
 
 ✅ Authentication validated
-   - GitHub CLI: Authenticated as trey.briggs
+   - GitHub CLI: Authenticated as alex.chen
    - Jira: Token found
    - Confluence: Token found
 
@@ -18,22 +18,22 @@ This is an example of what the update-team skill outputs.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-▶ Updating Eyupcan Bodur...
+▶ Updating Casey Park...
   ✓ README updated with activity section
   ✓ Fetched 15 PRs (last 6 months)
   ✓ Average cycle time: 2h 15m
 
-▶ Updating Jason Diaz...
+▶ Updating Jordan Patel...
   ✓ README updated with activity section
   ✓ Fetched 8 PRs (last 6 months)
   ✓ Average cycle time: 4h 30m
 
-▶ Updating Charles Pham...
+▶ Updating Sam Lee...
   ✓ README updated with activity section
   ✓ Fetched 12 PRs (last 6 months)
   ✓ Average cycle time: 1h 45m
 
-▶ Updating Dibyendu Tiwari...
+▶ Updating Riley Kim...
   ✓ README updated with activity section
   ✓ Fetched 10 PRs (last 6 months)
   ✓ Average cycle time: 3h 10m
@@ -69,16 +69,16 @@ Time window: Aug 16, 2025 to Feb 16, 2026 (6 months)
 
 ## Top Contributors (by PR count)
 
-1. **Eyupcan Bodur**: 15 PRs (avg cycle time: 2h 15m)
+1. **Casey Park**: 15 PRs (avg cycle time: 2h 15m)
    - Most active in: frontends-learner-experience, service-mcp-chatgpt
 
-2. **Charles Pham**: 12 PRs (avg cycle time: 1h 45m)
+2. **Sam Lee**: 12 PRs (avg cycle time: 1h 45m)
    - Most active in: coding-labs, website-django
 
-3. **Dibyendu Tiwari**: 10 PRs (avg cycle time: 3h 10m)
+3. **Riley Kim**: 10 PRs (avg cycle time: 3h 10m)
    - Most active in: service-api-gateway, website-django
 
-4. **Jason Diaz**: 8 PRs (avg cycle time: 4h 30m)
+4. **Jordan Patel**: 8 PRs (avg cycle time: 4h 30m)
    - Most active in: frontends-learner-experience
 
 5. **Ying Rao**: 7 PRs (avg cycle time: 2h 50m)
@@ -86,21 +86,21 @@ Time window: Aug 16, 2025 to Feb 16, 2026 (6 months)
 
 ## Fastest Merge Times (< 1 hour)
 
-- **service-api-gateway #827** by Eyupcan Bodur: 40m
+- **service-api-gateway #827** by Casey Park: 40m
   - "feat: update namespace for frontends-pro-assessments URI"
 
-- **service-mcp-chatgpt #236** by Eyupcan Bodur: 15m
+- **service-mcp-chatgpt #236** by Casey Park: 15m
   - "feat: update cookie domain and remove secure"
 
-- **frontends-components-v2 #571** by Eyupcan Bodur: 16m
+- **frontends-components-v2 #571** by Casey Park: 16m
   - "feat: fixing on player ready synchronization"
 
 ## Longest Cycle Times
 
-- **frontends-learner-experience #710** by Eyupcan Bodur: 45d 8h (Draft/Open)
+- **frontends-learner-experience #710** by Casey Park: 45d 8h (Draft/Open)
   - "feat: client routing with react-router"
 
-- **i18n #18** by Eyupcan Bodur: 15d 20h
+- **i18n #18** by Casey Park: 15d 20h
   - "fix: revert 'feat: update import of quiz'"
 
 - **service-api-gateway #815** by Joao Cavalcanti: 12d 5h
@@ -110,10 +110,10 @@ Time window: Aug 16, 2025 to Feb 16, 2026 (6 months)
 
 | Name | PRs | Open | Merged | Closed | Avg Cycle Time | Status |
 |------|-----|------|--------|--------|----------------|--------|
-| Eyupcan Bodur | 15 | 2 | 11 | 2 | 2h 15m | ✅ Updated |
-| Jason Diaz | 8 | 1 | 6 | 1 | 4h 30m | ✅ Updated |
-| Charles Pham | 12 | 0 | 10 | 2 | 1h 45m | ✅ Updated |
-| Dibyendu Tiwari | 10 | 1 | 8 | 1 | 3h 10m | ✅ Updated |
+| Casey Park | 15 | 2 | 11 | 2 | 2h 15m | ✅ Updated |
+| Jordan Patel | 8 | 1 | 6 | 1 | 4h 30m | ✅ Updated |
+| Sam Lee | 12 | 0 | 10 | 2 | 1h 45m | ✅ Updated |
+| Riley Kim | 10 | 1 | 8 | 1 | 3h 10m | ✅ Updated |
 | Manuel Gutierrez | 6 | 0 | 5 | 1 | 5h 20m | ✅ Updated |
 | Leonardo Ingalls | 5 | 1 | 4 | 0 | 6h 15m | ✅ Updated |
 | Iván Delgado | 7 | 0 | 7 | 0 | 2h 40m | ✅ Updated |
@@ -129,7 +129,7 @@ Time window: Aug 16, 2025 to Feb 16, 2026 (6 months)
 | William Chandler | 10 | 1 | 8 | 1 | 2h 55m | ✅ Updated |
 | Luke Smith | 4 | 0 | 4 | 0 | 5h 45m | ✅ Updated |
 | Mei Wong | 6 | 0 | 5 | 1 | 3h 35m | ✅ Updated |
-| Evan Eustace | 12 | 2 | 9 | 1 | 4h 10m | ✅ Updated |
+| Morgan Eustace | 12 | 2 | 9 | 1 | 4h 10m | ✅ Updated |
 | Abbas Hachem | 0 | 0 | 0 | 0 | — | ⚠️ No longer at company |
 | Seth Hodgson | 0 | 0 | 0 | 0 | — | ⚠️ No longer at company |
 
@@ -174,12 +174,12 @@ This is a preview of what would be updated. No files will be modified.
 
 ## Would update these README files:
 
-1. /Users/trey.briggs/Code/documentation/work/udemy/teammembers/Eyupcan Bodur/README.md
-2. /Users/trey.briggs/Code/documentation/work/udemy/teammembers/Jason Diaz/README.md
-3. /Users/trey.briggs/Code/documentation/work/udemy/teammembers/Charles Pham/README.md
+1. {teammembers}/Casey Park/README.md
+2. {teammembers}/Jordan Patel/README.md
+3. {teammembers}/Sam Lee/README.md
 [... 19 more files]
 
-## Sample data for Eyupcan Bodur:
+## Sample data for Casey Park:
 
 Would add "Past Week Activity (Feb 10-16, 2026)" section
 
@@ -191,7 +191,7 @@ Would add these PRs to "Recent GitHub Activity (Last 6 Months)":
 | service-api-gateway | [#827](https://github.com/udemy/service-api-gateway/pull/827) | feat: update namespace | ✅ Merged | 2025-12-17 | 40m |
 [... 12 more PRs]
 
-## Sample data for Jason Diaz:
+## Sample data for Jordan Patel:
 
 Would add "Past Week Activity (Feb 10-16, 2026)" section
 
@@ -239,11 +239,11 @@ Then try running update-team again.
 ## Single Member Update
 
 ```
-🔄 Updating team member profile for: Eyupcan Bodur
+🔄 Updating team member profile for: Casey Park
 
 ✅ Authentication validated
 
-▶ Updating Eyupcan Bodur...
+▶ Updating Casey Park...
   ✓ README updated with activity section
   ✓ Fetched 15 PRs (last 6 months)
   ✓ Average cycle time: 2h 15m
@@ -256,7 +256,7 @@ Then try running update-team again.
   - website-django #100818: Merged (1h 41m)
   [... 10 more PRs]
 
-✅ Update complete for Eyupcan Bodur!
+✅ Update complete for Casey Park!
 
 📊 Summary: 1 member processed, 15 PRs fetched, avg cycle time 2h 15m
 ```

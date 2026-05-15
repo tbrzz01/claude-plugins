@@ -58,9 +58,9 @@ Tasks often start with a category in bold:
 
 #### In Task Description
 ```
-- [ ] Jason: Complete the feature
-- [ ] **Labs**: Follow up with Diby on...
-- [ ] Charles to review code
+- [ ] Jordan: Complete the feature
+- [ ] **Labs**: Follow up with Riley on...
+- [ ] Sam to review code
 ```
 
 Patterns:
@@ -70,12 +70,12 @@ Patterns:
 
 #### Common Names to Match
 From team roster:
-- Trey (self)
-- Jason / Jason Diaz
-- Charles / Charles Pham
-- Diby / Dibyendu / Dibyendu Tiwari
-- Eyupcan / Eyupcan Bodur
-- Evan / Evan Eustace
+- Alex (self)
+- Jordan / Jordan Patel
+- Sam / Sam Lee
+- Riley / Riley / Riley Kim
+- Casey / Casey Park
+- Morgan / Morgan Eustace
 - Manuel / Manuel Gutierrez
 - Leonardo / Leo
 - Iván / Ivan
@@ -94,12 +94,12 @@ From team roster:
 
 ### Regex for Name Extraction
 ```regex
-\b(Jason|Charles|Diby|Eyupcan|Evan|Manuel|Leonardo|Ivan|Carlos|Ying|Jackson|Alex|Joao|Shanshan|Maisa|Linus|Matthew|William|Will|Luke|Mei)\b
+\b(Jordan|Sam|Riley|Casey|Morgan|Manuel|Leonardo|Ivan|Carlos|Ying|Jackson|Alex|Joao|Shanshan|Maisa|Linus|Matthew|William|Will|Luke|Mei)\b
 ```
 
 ### Implied Ownership
 If no explicit owner:
-- Tasks in daily sections (Monday, Tuesday, etc.) → Default to user (Trey)
+- Tasks in daily sections (Monday, Tuesday, etc.) → Default to user (Alex)
 - Tasks in "Carried Over" section → Check original context or default to user
 - Tasks in "Notes-derived Action Items" → Look at meeting notes for context
 
@@ -278,7 +278,7 @@ sub_notes:
   - Carried over from 1/20
   - asked for clarification from Han
 original_date: Jan 20, 2026
-owner: Trey (implied, or inferred from "Han" context)
+owner: Alex (implied, or inferred from "Han" context)
 priority: medium (default, no indicators)
 ```
 

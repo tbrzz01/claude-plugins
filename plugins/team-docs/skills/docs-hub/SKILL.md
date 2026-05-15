@@ -16,6 +16,18 @@ description: |
 version: 1.0.0
 ---
 
+## Setup: Resolve Config Paths
+
+Before any file operation, resolve `{placeholder}` references in this file:
+
+1. Read `plugins/team-docs/config.local.json` (fall back to `config.example.json` if missing).
+2. Substitute each `{placeholder}` with the matching key from the config. Top-level keys (e.g. `docs_root`, `vault_root`, `tech_docs_root`, `scripts_root`) and `subpaths` keys (e.g. `hub`, `teammembers`, `meeting_notes`, `myteam_index`) are valid.
+3. Subpath values may themselves reference `{docs_root}` etc. — expand recursively.
+4. Tilde (`~`) at the start of a path expands to `$HOME`.
+
+If `config.local.json` is missing, tell the user to copy `config.example.json` to `config.local.json` and fill in their paths before continuing.
+
+
 # Docs Hub Skill
 
 ## Description
@@ -31,7 +43,7 @@ Provides quick access and navigation to strategic hub documents with automatic s
 ### Phase 1: Index Hub Documents
 
 1. **Locate Hub Directory**
-   - Path: `/Users/trey.briggs/Code/documentation/work/udemy/hub/`
+   - Path: `{hub}/`
    - Scan for all markdown files in this directory
    - Track file metadata (size, modified date)
 
@@ -138,11 +150,11 @@ Provides quick access and navigation to strategic hub documents with automatic s
    - {Topic 2}
    - {Topic 3}
 
-   **Quick Access:** `/Users/trey.briggs/Code/documentation/work/udemy/hub/{filename}`
+   **Quick Access:** `{hub}/{filename}`
 
    **Read command:**
    ```
-   Read file: /Users/trey.briggs/Code/documentation/work/udemy/hub/{filename}
+   Read file: {hub}/{filename}
    ```
    ```
 
@@ -195,12 +207,12 @@ Provides quick access and navigation to strategic hub documents with automatic s
 
    - **View Learning Paths guide:**
      ```
-     Read: /Users/trey.briggs/Code/documentation/work/udemy/hub/LearningPath.md
+     Read: {hub}/LearningPath.md
      ```
 
    - **View Labs documentation:**
      ```
-     Read: /Users/trey.briggs/Code/documentation/work/udemy/hub/labs_vocareum.md
+     Read: {hub}/labs_vocareum.md
      ```
    ```
 
@@ -282,7 +294,7 @@ Read: /full/path/to/document.md
 - Common debugging scenarios
 - Frontend and backend integration points
 
-**Quick Access:** `/Users/trey.briggs/Code/documentation/work/udemy/hub/LearningPath.md`
+**Quick Access:** `{hub}/LearningPath.md`
 
 ---
 
@@ -298,7 +310,7 @@ Read: /full/path/to/document.md
 - Data synchronization
 - Team ownership boundaries
 
-**Quick Access:** `/Users/trey.briggs/Code/documentation/work/udemy/hub/OrganizationAssignments.md`
+**Quick Access:** `{hub}/OrganizationAssignments.md`
 
 ---
 
@@ -314,7 +326,7 @@ Read: /full/path/to/document.md
 - Operational runbooks
 - Future migration plans
 
-**Quick Access:** `/Users/trey.briggs/Code/documentation/work/udemy/hub/labs_vocareum.md`
+**Quick Access:** `{hub}/labs_vocareum.md`
 
 ---
 
@@ -329,7 +341,7 @@ Read: /full/path/to/document.md
 - Cross-team coordination
 - Resource allocation
 
-**Quick Access:** `/Users/trey.briggs/Code/documentation/work/udemy/hub/LS Eng Leads - Working Docs.md`
+**Quick Access:** `{hub}/LS Eng Leads - Working Docs.md`
 
 ---
 
@@ -344,7 +356,7 @@ Read: /full/path/to/document.md
 - Team growth planning
 - Onboarding workflows
 
-**Quick Access:** `/Users/trey.briggs/Code/documentation/work/udemy/hub/Hiring.md`
+**Quick Access:** `{hub}/Hiring.md`
 
 ---
 
@@ -358,17 +370,17 @@ Consider reviewing these documents for accuracy and relevance.
 
 **View Learning Paths guide:**
 ```
-Read: /Users/trey.briggs/Code/documentation/work/udemy/hub/LearningPath.md
+Read: {hub}/LearningPath.md
 ```
 
 **View Labs documentation:**
 ```
-Read: /Users/trey.briggs/Code/documentation/work/udemy/hub/labs_vocareum.md
+Read: {hub}/labs_vocareum.md
 ```
 
 **Search hub documents:**
 ```
-Use grep to search: grep -i "keyword" /Users/trey.briggs/Code/documentation/work/udemy/hub/*.md
+Use grep to search: grep -i "keyword" {hub}/*.md
 ```
 ```
 
@@ -393,7 +405,7 @@ Line 123: The LearningPath model contains the following fields...
 
 **Read full document:**
 ```
-Read: /Users/trey.briggs/Code/documentation/work/udemy/hub/LearningPath.md
+Read: {hub}/LearningPath.md
 ```
 
 ---
@@ -409,7 +421,7 @@ Line 567: Integration with learning paths requires coordination...
 
 **Read full document:**
 ```
-Read: /Users/trey.briggs/Code/documentation/work/udemy/hub/OrganizationAssignments.md
+Read: {hub}/OrganizationAssignments.md
 ```
 ```
 

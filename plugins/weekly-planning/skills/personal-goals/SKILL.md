@@ -13,6 +13,18 @@ description: |
   Always offer to run this skill after new-week completes. Always include it in Friday/weekly review flows.
 ---
 
+## Setup: Resolve Config Paths
+
+Before any file operation, resolve `{placeholder}` references in this file:
+
+1. Read `plugins/weekly-planning/config.local.json` (fall back to `config.example.json` if missing).
+2. Substitute each `{placeholder}` with the matching key from the config. Top-level keys (e.g. `docs_root`, `templates_root`, `personal_root`) and `subpaths` keys (e.g. `weekly_plans`, `meeting_notes`, `hub`, `teammembers`, `myteam_index`, `notes_template`, `goals_file`) are valid.
+3. Subpath values may themselves reference `{docs_root}` etc. — expand recursively.
+4. Tilde (`~`) at the start of a path expands to `$HOME`.
+
+If `config.local.json` is missing, tell the user to copy `config.example.json` to `config.local.json` and fill in their paths before continuing.
+
+
 # Personal Goals Skill
 
 This skill manages your OKR-style personal professional goals and weaves them into your weekly workflow in three modes:
@@ -28,10 +40,10 @@ This skill manages your OKR-style personal professional goals and weaves them in
 Goals are intentionally stored outside of any company-specific folder — they belong to you, not your employer.
 
 Goals live at:
-`/Users/trey.briggs/Code/documentation/personal/goals.md`
+`{personal_root}/goals.md`
 
 Previous quarters are archived in the same folder:
-`/Users/trey.briggs/Code/documentation/personal/goals-{quarter}-{year}.md`
+`{personal_root}/goals-{quarter}-{year}.md`
 (e.g., `goals-q1-2026.md`)
 
 ### Goal File Format

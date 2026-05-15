@@ -27,14 +27,14 @@ This is an example of what the new-week skill generates.
 **Focus:** GwG & Labs
 
 - [ ] GwG post-launch review meeting
-- [ ] Labs security follow-up with Diby
+- [ ] Labs security follow-up with Riley
 
 ### Wednesday (2/5)
 
 **Focus:** Team Development
 
-- [ ] 1:1 with Jason - Q2 planning
-- [ ] 1:1 with Charles - Team structure
+- [ ] 1:1 with Jordan - Q2 planning
+- [ ] 1:1 with Sam - Team structure
 - [ ] Review promotion packets
 
 ### Thursday (2/6)
@@ -55,7 +55,7 @@ This is an example of what the new-week skill generates.
 
 - [ ] **Skills Journey**: Learn more about assign, recommend, share, learning paths
     - Carried over from Jan 27, 2026
-    - Continue working with Eyupcan on slide deck
+    - Continue working with Casey on slide deck
 - [ ] **Agentic AI**: Review agentic AI repository - https://udemy.slack.com/archives/C087N2G2YF8/p1767877474992079
     - Carried over from Jan 27, 2026
     - Follow up with Rajit on databricks agents
@@ -78,16 +78,16 @@ This is an example of what the new-week skill generates.
 ### Team Activity Summary
 
 #### Skills Enablement Pod
-- **Jason Diaz**: [Activity updates]
+- **Jordan Patel**: [Activity updates]
 - **Manuel Gutierrez**: [Activity updates]
 - **Ying Rao**: [Activity updates]
 
 #### Technical Skills Mastery - Services
-- **Dibyendu Tiwari**: [Activity updates]
+- **Riley Kim**: [Activity updates]
 - **Joao Cavalcanti**: [Activity updates]
 
 #### Technical Skills Experiences
-- **Charles Pham**: [Activity updates]
+- **Sam Lee**: [Activity updates]
 - **William Chandler**: [Activity updates]
 
 ---

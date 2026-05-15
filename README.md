@@ -23,6 +23,18 @@ In Claude Code:
 
 Install only the ones you want — each is independent.
 
+## Local configuration
+
+`weekly-planning` and `team-docs` read filesystem paths (your docs root, weekly plans folder, etc.) from a per-plugin config file. Each plugin ships a `config.example.json`. Copy it to `config.local.json` and fill in your paths:
+
+```bash
+cp plugins/weekly-planning/config.example.json plugins/weekly-planning/config.local.json
+cp plugins/team-docs/config.example.json       plugins/team-docs/config.local.json
+# edit each config.local.json with your actual paths
+```
+
+`config.local.json` is gitignored. Skills and agents resolve `{placeholder}` references against this file at runtime.
+
 ## What's inside each plugin
 
 ### weekly-planning

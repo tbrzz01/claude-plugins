@@ -19,6 +19,18 @@ description: |
   </example>
 ---
 
+## Setup: Resolve Config Paths
+
+Before any file operation, resolve `{placeholder}` references in this file:
+
+1. Read `plugins/weekly-planning/config.local.json` (fall back to `config.example.json` if missing).
+2. Substitute each `{placeholder}` with the matching key from the config. Top-level keys (e.g. `docs_root`, `templates_root`, `personal_root`) and `subpaths` keys (e.g. `weekly_plans`, `meeting_notes`, `hub`, `teammembers`, `myteam_index`, `notes_template`, `goals_file`) are valid.
+3. Subpath values may themselves reference `{docs_root}` etc. — expand recursively.
+4. Tilde (`~`) at the start of a path expands to `$HOME`.
+
+If `config.local.json` is missing, tell the user to copy `config.example.json` to `config.local.json` and fill in their paths before continuing.
+
+
 # New Week Skill
 
 ## Description
@@ -33,7 +45,7 @@ Creates a new weekly plan document with auto-calculated dates, sequential number
 ### Phase 1: Find Latest Weekly Plan
 
 1. **Locate Weekly Plan Directory**
-   - Path: `/Users/trey.briggs/Code/documentation/work/udemy/Weekly Plan/`
+   - Path: `{weekly_plans}/`
    - List all subdirectories in this directory
 
 2. **Identify Most Recent Plan**
@@ -164,7 +176,7 @@ Creates a new weekly plan document with auto-calculated dates, sequential number
 1. **Create Folder and File**
    - Folder format: `YYYY-MM-DD/` (e.g., `2026-02-16/`)
    - File inside: `README.md`
-   - Full path: `/Users/trey.briggs/Code/documentation/work/udemy/Weekly Plan/{YYYY-MM-DD}/README.md`
+   - Full path: `{weekly_plans}/{YYYY-MM-DD}/README.md`
 
 2. **Build Template with Distributed Tasks**
    Use this template structure:
@@ -235,7 +247,7 @@ All {count} incomplete tasks from {previous week date} have been distributed acr
 ### Phase 6: Add Team Member Activity Sections
 
 1. **Read Team Roster**
-   - Path: `/Users/trey.briggs/Code/documentation/work/udemy/teammembers/myteam.md`
+   - Path: `{myteam_index}`
    - Extract all team member names and roles
 
 2. **Create Team Activity Templates**
@@ -255,9 +267,9 @@ All {count} incomplete tasks from {previous week date} have been distributed acr
 ### Phase 7: Write and Confirm
 
 1. **Create Directory and Write File**
-   - Use Bash to create the directory: `mkdir -p "/Users/trey.briggs/Code/documentation/work/udemy/Weekly Plan/{YYYY-MM-DD}"`
+   - Use Bash to create the directory: `mkdir -p "{weekly_plans}/{YYYY-MM-DD}"`
    - Use Write tool to create the README.md file inside
-   - Ensure proper path: `/Users/trey.briggs/Code/documentation/work/udemy/Weekly Plan/{YYYY-MM-DD}/README.md`
+   - Ensure proper path: `{weekly_plans}/{YYYY-MM-DD}/README.md`
    - Verify the file was created successfully
 
 2. **Generate Summary**
@@ -314,10 +326,10 @@ If a task is unclear whether it should be carried over:
 
 **Focus: Leadership Alignment & Planning**
 
-- [ ] **Evan/Jacob/Kristin Sync**: Schedule and coordinate follow-up conversation on operating model
+- [ ] **Morgan/Drew/Quinn Sync**: Schedule and coordinate follow-up conversation on operating model
     - Carried over from Feb 9, 2026
-    - Kristin's note on subs tiers aligns with thinking
-- [ ] **Skills Journey Architecture**: Work with Martin B, Ahmet A, John W to define team ownership
+    - Quinn's note on subs tiers aligns with thinking
+- [ ] **Skills Journey Architecture**: Work with Taylor, Devon A, John W to define team ownership
     - Carried over from Feb 9, 2026
     - DS ownership aligned, product eng to follow
 - [ ] **Skills Journey Model**: Share rough model mapping groups and tech leads to components
@@ -330,7 +342,7 @@ If a task is unclear whether it should be carried over:
 - [ ] **Labs 2026 Proposal**: Keep pushing proposal forward
     - Carried over from Feb 9, 2026
     - Link: https://docs.google.com/document/d/...
-- [ ] **Schedule Graham Labs 2026 review**
+- [ ] **Schedule Emerson Labs 2026 review**
     - Carried over from Feb 9, 2026
 - [ ] **Labs Error Rate**: Investigate persistent error rate
     - Carried over from Feb 9, 2026
@@ -339,7 +351,7 @@ If a task is unclear whether it should be carried over:
 
 **Focus: Product & Process Improvements**
 
-- [ ] **Dynamic Lecture Articles**: Follow up with Dave, Nish, Okan
+- [ ] **Dynamic Lecture Articles**: Follow up with Robin, Avery, Jamie
     - Carried over from Feb 9, 2026
 - [ ] **Learning Systems Review**: Review learning paths, share resource
     - Carried over from Feb 9, 2026

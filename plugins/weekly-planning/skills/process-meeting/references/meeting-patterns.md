@@ -40,10 +40,10 @@ Action Items:
 ## Action Item Patterns
 
 ### Explicit Ownership
-- "Trey will create the document"
-- "Jason: Review the PR"
-- "Assigned to: Diby"
-- "Owner: Charles"
+- "Alex will create the document"
+- "Jordan: Review the PR"
+- "Assigned to: Riley"
+- "Owner: Sam"
 
 ### Implied Ownership (by verb subject)
 - "Create a ticket for this" → Meeting organizer or context owner
@@ -85,8 +85,8 @@ Action Items:
 ## Context Clues for Owner Inference
 
 ### By Name
-- Direct mention: "Trey will do X"
-- Indirect: "Let's have Trey handle Y"
+- Direct mention: "Alex will do X"
+- Indirect: "Let's have Alex handle Y"
 - Question answered: "Can you do X?" "Yes" → Questioner assigns to responder
 
 ### By Role
@@ -183,11 +183,11 @@ Action Items:
 
 ### Grouped by Owner Style
 ```markdown
-### Trey Briggs
+### Alex Chen
 - [ ] Task 1
 - [ ] Task 2
 
-### Jason Diaz
+### Jordan Patel
 - [ ] Task 3
 ```
 

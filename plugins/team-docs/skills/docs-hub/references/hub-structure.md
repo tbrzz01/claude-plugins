@@ -4,7 +4,7 @@
 
 The hub directory contains strategic technical documentation for the Learning Systems organization at Udemy. These documents serve as the primary reference for major features, organizational structure, and processes.
 
-**Hub Location:** `/Users/trey.briggs/Code/documentation/work/udemy/hub/`
+**Hub Location:** `{hub}/`
 
 ## Hub Documents Index
 
@@ -92,7 +92,7 @@ The hub directory contains strategic technical documentation for the Learning Sy
 - Resource Allocation
 
 **Update Frequency:** Weekly or bi-weekly
-**Owners:** Engineering leadership (Trey, Jason, Charles, Diby)
+**Owners:** Engineering leadership (Alex, Jordan, Sam, Riley)
 
 **Typical Content:**
 - Meeting agendas
@@ -238,7 +238,7 @@ Recent work: [Weekly Plan Feb 16](../Weekly Plan/2026-02-16/README.md)
 
 **From Hub Docs to Team Profiles:**
 ```markdown
-Owner: [Jason Diaz](../teammembers/Jason Diaz/README.md)
+Owner: [Jordan Patel](../teammembers/Jordan Patel/README.md)
 ```
 
 ### Backlinks
@@ -262,8 +262,8 @@ Hub documents should maintain "Referenced By" sections:
 ```markdown
 ## Document Ownership
 
-**Content Owner:** Jason Diaz (Skills Enablement lead)
-**Technical Owner:** Martin B (Data Science)
+**Content Owner:** Jordan Patel (Skills Enablement lead)
+**Technical Owner:** Taylor (Data Science)
 **Last Reviewed:** 2026-02-15
 **Next Review:** 2026-05-15 (quarterly)
 ```
@@ -356,17 +356,17 @@ Technical issues reference hub docs:
 
 Find documents by keyword:
 ```bash
-grep -l "keyword" /Users/trey.briggs/Code/documentation/work/udemy/hub/*.md
+grep -l "keyword" {hub}/*.md
 ```
 
 Find documents by size:
 ```bash
-find /Users/trey.briggs/Code/documentation/work/udemy/hub/ -name "*.md" -size +50k
+find {hub}/ -name "*.md" -size +50k
 ```
 
 Find recently updated documents:
 ```bash
-find /Users/trey.briggs/Code/documentation/work/udemy/hub/ -name "*.md" -mtime -30
+find {hub}/ -name "*.md" -mtime -30
 ```
 
 ---

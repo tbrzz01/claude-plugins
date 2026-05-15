@@ -232,9 +232,9 @@ Based on content analysis, these documents may be related:
 - [Weekly Plan Feb 9](../Weekly Plan/2026-02-09/README.md) - Previous week's Labs tasks
 - [Labs Strategy Meeting](../meeting-notes/2026-01-15-labs-strategy.md) - Architecture discussion
 
-### Same People (Trey, Diby, Evan)
-- [1-on-1 with Diby](../meeting-notes/2026-02-12-diby-1on1.md) - Labs ownership discussion
-- [Team Member: Dibyendu Tiwari](../teammembers/Dibyendu Tiwari/README.md) - Profile
+### Same People (Alex, Riley, Morgan)
+- [1-on-1 with Riley](../meeting-notes/2026-02-12-diby-1on1.md) - Labs ownership discussion
+- [Team Member: Riley Kim](../teammembers/Riley Kim/README.md) - Profile
 
 ### Same Timeframe (Feb 2026)
 - [Skills Journey Architecture Review](../meeting-notes/2026-02-09-skills-journey.md)
@@ -251,8 +251,8 @@ The skill can generate backlinks showing what documents reference this one:
 This document is referenced in:
 
 - [Weekly Plan Feb 16](../Weekly Plan/2026-02-16/README.md) - Action item: Review Labs proposal
-- [1-on-1 with Evan - Feb 19](../meeting-notes/2026-02-19-evan-1on1.md) - GwG Wave 2 discussion
-- [Team Member: Dibyendu Tiwari](../teammembers/Dibyendu Tiwari/README.md) - Current projects
+- [1-on-1 with Morgan - Feb 19](../meeting-notes/2026-02-19-evan-1on1.md) - GwG Wave 2 discussion
+- [Team Member: Riley Kim](../teammembers/Riley Kim/README.md) - Current projects
 ```
 
 ## Best Practices Demonstrated

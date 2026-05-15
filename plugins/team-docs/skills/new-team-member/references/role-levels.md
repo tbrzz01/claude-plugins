@@ -144,20 +144,20 @@ Based on current team structure (as of 2026):
 
 ### Skills Enablement
 - Focus: Skills journey, learning paths, recommendations
-- Engineering Manager: Jason Diaz
+- Engineering Manager: Jordan Patel
 
 ### Technical Skills Mastery - Services
 - Focus: Backend services, APIs, infrastructure
-- Engineering Manager: Dibyendu Tiwari (Diby)
+- Engineering Manager: Riley Kim (Riley)
 
 ### Technical Skills Experiences
 - Focus: Labs, Vocareum, hands-on experiences
-- Engineering Manager: Charles Pham
+- Engineering Manager: Sam Lee
 
 ### Floater / Cross-Pod
 - Not assigned to specific pod
 - Works across multiple teams
-- Example: Eyupcan Bodur
+- Example: Casey Park
 
 ## Hire Date Format
 

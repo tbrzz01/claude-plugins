@@ -15,6 +15,18 @@ description: |
   </example>
 ---
 
+## Setup: Resolve Config Paths
+
+Before any file operation, resolve `{placeholder}` references in this file:
+
+1. Read `plugins/team-docs/config.local.json` (fall back to `config.example.json` if missing).
+2. Substitute each `{placeholder}` with the matching key from the config. Top-level keys (e.g. `docs_root`, `vault_root`, `tech_docs_root`, `scripts_root`) and `subpaths` keys (e.g. `hub`, `teammembers`, `meeting_notes`, `myteam_index`) are valid.
+3. Subpath values may themselves reference `{docs_root}` etc. — expand recursively.
+4. Tilde (`~`) at the start of a path expands to `$HOME`.
+
+If `config.local.json` is missing, tell the user to copy `config.example.json` to `config.local.json` and fill in their paths before continuing.
+
+
 # New Team Member Skill
 
 ## Description
@@ -22,7 +34,7 @@ Creates a new team member profile directory with a properly formatted README.md 
 
 ## Input
 The skill will interactively prompt for:
-- **Full Name** (e.g., "Eyupcan Bodur")
+- **Full Name** (e.g., "Casey Park")
 - **GitHub Handle** (e.g., "bodureyupcan")
 - **Role/Level** (e.g., "Staff Software Engineer", "IC4", "M3")
 - **Team/Pod** (e.g., "Skills Enablement", "Technical Skills Mastery")
@@ -57,10 +69,10 @@ The skill will interactively prompt for:
 ### Phase 2: Create Directory Structure
 
 1. **Create Team Member Directory**
-   - Base path: `/Users/trey.briggs/Code/documentation/work/udemy/teammembers/`
+   - Base path: `{teammembers}/`
    - Directory name: Use full name as provided
-   - Full path: `/Users/trey.briggs/Code/documentation/work/udemy/teammembers/{Full Name}/`
-   - Example: `/Users/trey.briggs/Code/documentation/work/udemy/teammembers/Sarah Chen/`
+   - Full path: `{teammembers}/{Full Name}/`
+   - Example: `{teammembers}/Sarah Chen/`
 
 2. **Check for Existing Directory**
    - If directory already exists, ask user if they want to:
@@ -119,7 +131,7 @@ The skill will interactively prompt for:
 ```
 
 2. **Write README.md File**
-   - Path: `/Users/trey.briggs/Code/documentation/work/udemy/teammembers/{Full Name}/README.md`
+   - Path: `{teammembers}/{Full Name}/README.md`
    - Use Write tool to create the file
    - Preserve proper markdown formatting
 
@@ -143,7 +155,7 @@ The skill will interactively prompt for:
 ### Phase 5: Update Team Roster
 
 1. **Read Team Roster**
-   - Path: `/Users/trey.briggs/Code/documentation/work/udemy/teammembers/myteam.md`
+   - Path: `{myteam_index}`
    - Parse the table structure
 
 2. **Determine Team Section**
@@ -173,7 +185,7 @@ The skill will interactively prompt for:
    ## Team Member Profile Created
 
    **Name:** {Full Name}
-   **Location:** `/Users/trey.briggs/Code/documentation/work/udemy/teammembers/{Full Name}/README.md`
+   **Location:** `{teammembers}/{Full Name}/README.md`
 
    ### Details
    - GitHub: @{github_handle}
@@ -276,7 +288,7 @@ This skill works best when:
 ## Sample Profile Structure
 
 Reference profiles to emulate:
-- `/Users/trey.briggs/Code/documentation/work/udemy/teammembers/Eyupcan Bodur/README.md`
+- `{teammembers}/Casey Park/README.md`
 - Shows proper formatting for all sections
 - Includes example PR tables, Jira tickets, Confluence docs
 - Has well-structured notes sections

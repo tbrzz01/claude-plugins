@@ -26,7 +26,7 @@ Sarah Chen is a Senior Software Engineer specializing in full-stack development 
 - [ ] Review codebase and architecture docs
 - [ ] Attend team stand-ups and get familiar with current sprint
 
-#### First 1:1 with Trey (Feb 18, 2026)
+#### First 1:1 with Alex (Feb 18, 2026)
 - Discussed background and previous experience
 - Reviewed team structure and responsibilities
 - Set goals for first 30/60/90 days
@@ -133,7 +133,7 @@ and 3 years of management experience. He previously managed teams at Google and 
 ### Week of Feb 16, 2026
 
 #### Team Overview (Direct Reports)
-- Jason Diaz (transitioning to new role)
+- Jordan Patel (transitioning to new role)
 - 7 engineers in Skills Enablement pod
 - 2 open headcount (IC2, IC3)
 

@@ -16,6 +16,18 @@ description: |
 version: 1.0.0
 ---
 
+## Setup: Resolve Config Paths
+
+Before any file operation, resolve `{placeholder}` references in this file:
+
+1. Read `plugins/team-docs/config.local.json` (fall back to `config.example.json` if missing).
+2. Substitute each `{placeholder}` with the matching key from the config. Top-level keys (e.g. `docs_root`, `vault_root`, `tech_docs_root`, `scripts_root`) and `subpaths` keys (e.g. `hub`, `teammembers`, `meeting_notes`, `myteam_index`) are valid.
+3. Subpath values may themselves reference `{docs_root}` etc. — expand recursively.
+4. Tilde (`~`) at the start of a path expands to `$HOME`.
+
+If `config.local.json` is missing, tell the user to copy `config.example.json` to `config.local.json` and fill in their paths before continuing.
+
+
 # Link Docs Skill
 
 ## Description
@@ -162,14 +174,14 @@ Automatically converts plain URLs to rich markdown links by fetching titles from
    ```bash
    # Find documents in the same directory or related directories
    # Example: Weekly plans might reference meeting notes
-   ls "/Users/trey.briggs/Code/documentation/work/udemy/Weekly Plan/"
-   ls "/Users/trey.briggs/Code/documentation/work/udemy/hub/"
+   ls "{weekly_plans}/"
+   ls "{hub}/"
    ```
 
 3. **Extract Keywords**
    From the current document, extract:
    - Project names: Skills Journey, Labs 2026, GwG
-   - Team member names: Trey, Jason, Charles, Diby
+   - Team member names: Alex, Jordan, Sam, Riley
    - Technical terms: architecture, API, infrastructure
 
 4. **Search for Related Documents**
@@ -184,13 +196,13 @@ Automatically converts plain URLs to rich markdown links by fetching titles from
    ## Related Documents
    - [Skills Journey Architecture](../hub/SkillsJourneyArchitecture.md)
    - [Weekly Plan Feb 9](../Weekly Plan/2026-02-09/README.md)
-   - [Team Member: Nishanth](../teammembers/Nishanth/README.md)
+   - [Team Member: Avery](../teammembers/Avery/README.md)
    ```
 
 ### Phase 5: Create Backlinks
 
 1. **Identify Current Document**
-   - File path: `/Users/trey.briggs/Code/documentation/work/udemy/meeting-notes/2026-02-09-skills-journey.md`
+   - File path: `{meeting_notes}/2026-02-09-skills-journey.md`
    - Title: Skills Journey Architecture Review
 
 2. **Find Documents that Link Here**
@@ -205,7 +217,7 @@ Automatically converts plain URLs to rich markdown links by fetching titles from
    ```markdown
    ## Referenced By
    - [Weekly Plan Feb 9](../Weekly Plan/2026-02-09/README.md) - Action item: Review architecture
-   - [Nishanth 1:1 Notes](../teammembers/Nishanth/1on1-2026-02-12.md) - Discussed ownership
+   - [Avery 1:1 Notes](../teammembers/Avery/1on1-2026-02-12.md) - Discussed ownership
    ```
 
 4. **Update Referenced Documents**

@@ -1,0 +1,14 @@
+{
+  "$schema": "Edit this file as config.local.json with your actual paths. config.local.json is gitignored.",
+  "docs_root": "~/Code/documentation/work/company",
+  "vault_root": "~/Code/documentation/secondbrain/vault",
+  "tech_docs_root": "~/Code/documentation/docs",
+  "scripts_root": "~/Code/documentation/scripts",
+  "subpaths": {
+    "hub": "{docs_root}/hub",
+    "teammembers": "{docs_root}/teammembers",
+    "myteam_index": "{docs_root}/teammembers/myteam.md",
+    "meeting_notes": "{docs_root}/meeting-notes",
+    "weekly_plans": "{docs_root}/Weekly Plan"
+  }
+}

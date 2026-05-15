@@ -15,6 +15,18 @@ description: |
   </example>
 ---
 
+## Setup: Resolve Config Paths
+
+Before any file operation, resolve `{placeholder}` references in this file:
+
+1. Read `plugins/team-docs/config.local.json` (fall back to `config.example.json` if missing).
+2. Substitute each `{placeholder}` with the matching key from the config. Top-level keys (e.g. `docs_root`, `vault_root`, `tech_docs_root`, `scripts_root`) and `subpaths` keys (e.g. `hub`, `teammembers`, `meeting_notes`, `myteam_index`) are valid.
+3. Subpath values may themselves reference `{docs_root}` etc. — expand recursively.
+4. Tilde (`~`) at the start of a path expands to `$HOME`.
+
+If `config.local.json` is missing, tell the user to copy `config.example.json` to `config.local.json` and fill in their paths before continuing.
+
+
 # Update Team Skill
 
 ## Description
@@ -52,21 +64,21 @@ Enhanced wrapper around existing Python scripts (`update_team_activity.py`, `upd
 
 2. **Verify Scripts Exist**
    Check that scripts are present:
-   - `/Users/trey.briggs/Code/documentation/scripts/update_team_activity.py`
-   - `/Users/trey.briggs/Code/documentation/scripts/update_team_prs.py`
-   - `/Users/trey.briggs/Code/documentation/scripts/generate_pr_report.py`
+   - `{scripts_root}/update_team_activity.py`
+   - `{scripts_root}/update_team_prs.py`
+   - `{scripts_root}/generate_pr_report.py`
 
    If missing, provide error message with script paths
 
 3. **Verify Team Directory**
-   - Path: `/Users/trey.briggs/Code/documentation/work/udemy/teammembers/`
+   - Path: `{teammembers}/`
    - Check directory exists and contains team member folders
    - Use script: `~/.claude/skills/update-team/scripts/check_auth.sh`
 
 ### Phase 2: Determine Scope
 
 1. **Read Team Roster**
-   - Path: `/Users/trey.briggs/Code/documentation/work/udemy/teammembers/myteam.md`
+   - Path: `{myteam_index}`
    - Parse table to get list of all team members
    - Extract: Name, GitHub handle, email
 
@@ -85,8 +97,8 @@ Enhanced wrapper around existing Python scripts (`update_team_activity.py`, `upd
 
 1. **Run update_team_activity.py Script**
    ```bash
-   python3 /Users/trey.briggs/Code/documentation/scripts/update_team_activity.py \
-       --team-dir /Users/trey.briggs/Code/documentation/work/udemy/teammembers
+   python3 {scripts_root}/update_team_activity.py \
+       --team-dir {teammembers}
    ```
 
    This script:
@@ -112,7 +124,7 @@ Enhanced wrapper around existing Python scripts (`update_team_activity.py`, `upd
 
 1. **Run update_team_prs.py Script**
    ```bash
-   python3 /Users/trey.briggs/Code/documentation/scripts/update_team_prs.py
+   python3 {scripts_root}/update_team_prs.py
    ```
 
    This script:
@@ -201,11 +213,11 @@ If `--dry-run` flag is provided:
    # Dry Run: Team Activity Update
 
    ## Would update these README files:
-   - /Users/trey.briggs/Code/documentation/work/udemy/teammembers/Eyupcan Bodur/README.md
-   - /Users/trey.briggs/Code/documentation/work/udemy/teammembers/Jason Diaz/README.md
+   - {teammembers}/Casey Park/README.md
+   - {teammembers}/Jordan Patel/README.md
    - [... 20 more files]
 
-   ## Sample data for Eyupcan Bodur:
+   ## Sample data for Casey Park:
    Would add 15 PRs from last 6 months:
    - service-open-badge-issuance #594: Add CredlyIssuanceRecord table (Open)
    - service-open-badge-issuance #593: Add issue credly badge (Open)
@@ -251,18 +263,18 @@ Customize PR fetch window (default is 6 months).
 🔄 Updating team member profiles...
 
 ✅ Authentication validated
-   - GitHub CLI: Authenticated as trey.briggs
+   - GitHub CLI: Authenticated as alex.chen
    - Jira: Token found
    - Confluence: Token found
 
 📋 Processing 22 team members...
 
-▶ Updating Eyupcan Bodur...
+▶ Updating Casey Park...
   ✓ README updated with activity section
   ✓ Fetched 15 PRs (last 6 months)
   ✓ Average cycle time: 2h 15m
 
-▶ Updating Jason Diaz...
+▶ Updating Jordan Patel...
   ✓ README updated with activity section
   ✓ Fetched 8 PRs (last 6 months)
   ✓ Average cycle time: 4h 30m
@@ -342,14 +354,14 @@ Then try again.
 
 2. **Single Member**
    ```
-   user: "Update GitHub activity for Eyupcan"
-   skill: Updates only Eyupcan's README
+   user: "Update GitHub activity for Casey"
+   skill: Updates only Casey's README
    ```
 
 3. **Before 1:1s**
    ```
-   user: "Refresh Jason's profile before our 1:1"
-   skill: Updates Jason's README with latest activity
+   user: "Refresh Jordan's profile before our 1:1"
+   skill: Updates Jordan's README with latest activity
    ```
 
 4. **Dry Run Check**
