@@ -17,7 +17,8 @@
     "./skills/new-week",
     "./skills/track-actions",
     "./skills/personal-goals",
-    "./skills/process-meeting"
+    "./skills/process-meeting",
+    "./skills/leadership-review"
   ],
   "agents": [
     "./agents/weekly-review.md",

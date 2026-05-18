@@ -10,6 +10,7 @@
     "teammembers": "{docs_root}/teammembers",
     "myteam_index": "{docs_root}/teammembers/myteam.md",
     "notes_template": "{templates_root}/notes.md",
-    "goals_file": "{personal_root}/goals.md"
+    "goals_file": "{personal_root}/goals.md",
+    "leadership_reviews": "{personal_root}/leadership-reviews"
   }
 }
