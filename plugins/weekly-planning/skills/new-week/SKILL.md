@@ -56,7 +56,7 @@ Creates a new weekly plan document with auto-calculated dates, sequential number
 3. **Read Previous Week's Plan**
    - Use the Read tool to load the most recent `README.md`
    - Parse the content to extract:
-     - Incomplete tasks (lines with `- [ ]`)
+     - Incomplete tasks (table rows whose `Done` column is `[ ]`, per the task table schema below)
      - The date from the title (e.g., "# Feb 9, 2026")
      - Any "Tasks For Next Week" section
 
@@ -79,7 +79,7 @@ Creates a new weekly plan document with auto-calculated dates, sequential number
 ### Phase 3: Extract Carried-Over Tasks
 
 1. **Scan ALL Sections for Incomplete Tasks**
-   Search for all lines matching pattern: `- [ ]` (unchecked checkbox) in these sections:
+   Search for all task table rows whose `Done` column is `[ ]` (unchecked) in these sections:
    - **Working Tasks** (Monday through Friday sections)
    - **Carried Over from Last Week** section
    - **Follow-up Action Items** section
@@ -101,22 +101,24 @@ Creates a new weekly plan document with auto-calculated dates, sequential number
 3. **Categorize Tasks by Theme**
    Group tasks into categories based on keywords and context:
    - **Leadership/Strategy**: Operating model, alignment, strategic planning
-   - **Architecture/Technical**: Skills Journey architecture, technical reviews, system design
-   - **Labs**: Labs 2026, labs functionality, labs errors, walkthrough
-   - **Product/Features**: Dynamic lecture articles, learning systems, product reviews
-   - **Process/Operations**: Backlog review, support rota, guidelines
-   - **Innovation/Research**: Agent-first thinking, agentic apps, experiments
+   - **Architecture/Technical**: System architecture, technical reviews, system design
+   - **Project Work**: Active project initiatives, feature work, project errors, walkthroughs
+   - **Product/Features**: Feature articles, product systems, product reviews
+   - **Process/Operations**: Backlog review, support rotation, guidelines
+   - **Innovation/Research**: New approaches, experimental prototypes, research
    - **Meetings/Sync**: Schedule meetings, coordination, follow-ups
-   - **Defects/Bugs**: Specific JIRA tickets, error investigations
+   - **Defects/Bugs**: Specific bug tickets, error investigations
    - **Reviews/Feedback**: Weekly review, documentation review
 
 4. **Extract Rich Context**
-   For each task, capture:
-   - Task description (including **Category**: format if present)
-   - Any sub-bullets or notes (indented lines)
-   - URLs and links
+   For each task, capture the contents of every table column:
+   - Task name and Description (including **Category**: format if present, and any URLs/links embedded in it)
+   - Due Date
+   - Suggested Path to Resolve
+   - What's Needed
+   - What Was Learned
    - Original context (which day/section it was in)
-   - Any "Carried over from X" notes to track age
+   - Any "Carried over from X" notes to track age (fold into Description or Suggested Path)
    - Priority indicators ("low priority", "critical", etc.)
 
 5. **Prioritize Tasks**
@@ -132,25 +134,25 @@ Creates a new weekly plan document with auto-calculated dates, sequential number
    **Monday**: Leadership, Strategy, Planning
    - Operating model discussions
    - Strategic alignment meetings
-   - Skills Journey architecture planning
+   - System architecture planning
    - Coordination with leadership
 
-   **Tuesday**: Labs, Technical Deep Dives
-   - Labs 2026 work
+   **Tuesday**: Project Work, Technical Deep Dives
+   - Active project work
    - Technical reviews
-   - Labs error investigations
-   - Labs walkthroughs
+   - Project error investigations
+   - Project walkthroughs
 
    **Wednesday**: Product, Features, Process
    - Product feature work
-   - Dynamic lecture articles
-   - Learning systems
+   - Feature articles
+   - Product systems
    - Backlog reviews
    - Process improvements
 
    **Thursday**: Innovation, Research, Exploration
-   - Agent-first thinking
-   - Agentic apps experiments
+   - New-approach thinking
+   - Experimental prototypes
    - New technology exploration
    - Innovation initiatives
 
@@ -169,9 +171,24 @@ Creates a new weekly plan document with auto-calculated dates, sequential number
 3. **Generate Daily Focus Areas**
    Based on tasks assigned to each day, create a concise focus statement:
    - Example: "**Focus: Leadership Alignment & Planning**"
-   - Example: "**Focus: Labs & Technical Reviews**"
+   - Example: "**Focus: Project Review & Technical Reviews**"
 
 ### Phase 5: Create New Weekly Plan Structure
+
+0. **Task Table Schema**
+   Every task — in Working Tasks (each day), Carried Over, Notes-derived Action Items, and Tasks For Next Week — is rendered as a row in a markdown table with these columns, in this order:
+
+   `| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |`
+
+   - **Task** — short name/title of the task.
+   - **Description** — what the task involves; fold in any links (Slack threads, docs, dashboards) and "Carried over from X" context here.
+   - **Due Date** — target completion date (M/D or full date).
+   - **Done** — `[ ]` or `[x]` checkbox.
+   - **Suggested Path to Resolve** — a concrete first step or approach, inferred best-effort from the task name, carried-over notes, and any linked context. Use `—` if nothing can be reasonably inferred — never fabricate specifics.
+   - **What's Needed** — inputs, people, or access required to start (e.g. "input from a teammate", "access to a monitoring dashboard"). Use `—` if unknown, same inference rule as above.
+   - **What Was Learned** — always `—` at creation time; this is filled in during/after the week, not by this skill.
+
+   Notes-derived Action Items and Tasks For Next Week start with just the table header (no rows) until populated later.
 
 1. **Create Folder and File**
    - Folder format: `YYYY-MM-DD/` (e.g., `2026-02-16/`)
@@ -196,31 +213,41 @@ Creates a new weekly plan document with auto-calculated dates, sequential number
 
 **Focus: {Generated focus for Monday}**
 
-{Tasks assigned to Monday with full context}
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
+{Tasks assigned to Monday, one row each}
 
 ### Tuesday ({M/D})
 
 **Focus: {Generated focus for Tuesday}**
 
-{Tasks assigned to Tuesday with full context}
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
+{Tasks assigned to Tuesday, one row each}
 
 ### Wednesday ({M/D})
 
 **Focus: {Generated focus for Wednesday}**
 
-{Tasks assigned to Wednesday with full context}
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
+{Tasks assigned to Wednesday, one row each}
 
 ### Thursday ({M/D})
 
 **Focus: {Generated focus for Thursday}**
 
-{Tasks assigned to Thursday with full context}
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
+{Tasks assigned to Thursday, one row each}
 
 ### Friday ({M/D})
 
 **Focus: {Generated focus for Friday}**
 
-{Tasks assigned to Friday with full context}
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
+{Tasks assigned to Friday, one row each}
 
 ## Carried Over from Last Week (All Assigned Above)
 
@@ -228,21 +255,30 @@ All {count} incomplete tasks from {previous week date} have been distributed acr
 
 ## Notes-derived Action Items
 
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
+
 (Populate as week progresses)
 
 ## Tasks For Next Week ({next week date})
+
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
 
 ## Notes
 
 ```
 
 3. **Populate Task Details**
-   For each task assigned to a day:
-   - Format: `- [ ] **{Category}**: {Task description}`
-   - Include sub-bullets with context (indented)
-   - Add note: "Carried over from {previous week date}"
-   - Preserve all URLs and links
-   - Keep priority indicators if present
+   For each task assigned to a day, add one table row:
+   - **Task**: `**{Category}**: {short task title}`
+   - **Description**: full task description, including any URLs/links and priority indicators
+   - **Due Date**: target date for the task (defaults to the day it's scheduled under)
+   - **Done**: `[ ]`
+   - **Suggested Path to Resolve**: best-effort inferred first step; `—` if nothing can be inferred
+   - **What's Needed**: best-effort inferred prerequisites/inputs; `—` if unknown
+   - **What Was Learned**: `—`
+   - Fold "Carried over from {previous week date}" into the Description or Suggested Path cell instead of a separate note
 
 ### Phase 6: Add Team Member Activity Sections
 
@@ -315,10 +351,10 @@ If a task is unclear whether it should be carried over:
 
 ## This Week's Priorities
 
-- **Operating Model & Skills Journey**: Finalize alignment with leadership
-- **Labs 2026**: Push proposal forward with stakeholders
-- **Dynamic Lecture Articles**: Productionalize the flow
-- **Innovation**: Explore agent-first thinking and agentic apps
+- **Operating Model & Architecture**: Finalize alignment with leadership
+- **Key Project**: Push proposal forward with stakeholders
+- **Feature Articles**: Productionalize the flow
+- **Innovation**: Explore new approaches and experimental prototypes
 
 ## Working Tasks
 
@@ -326,57 +362,49 @@ If a task is unclear whether it should be carried over:
 
 **Focus: Leadership Alignment & Planning**
 
-- [ ] **Morgan/Drew/Quinn Sync**: Schedule and coordinate follow-up conversation on operating model
-    - Carried over from Feb 9, 2026
-    - Quinn's note on subs tiers aligns with thinking
-- [ ] **Skills Journey Architecture**: Work with Taylor, Devon A, John W to define team ownership
-    - Carried over from Feb 9, 2026
-    - DS ownership aligned, product eng to follow
-- [ ] **Skills Journey Model**: Share rough model mapping groups and tech leads to components
-    - Carried over from Feb 9, 2026
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
+| **Leadership Sync** | Schedule and coordinate follow-up conversation on operating model. Carried over from Feb 9, 2026 — a teammate's note on tiering aligns with thinking | 2/16 | [ ] | Send a scheduling poll to the relevant stakeholders for this week | Availability from all attendees | — |
+| **System Architecture** | Work with teammates to define team ownership. Carried over from Feb 9, 2026 — design ownership aligned, engineering to follow | 2/17 | [ ] | Follow up with engineering on ownership alignment | Confirmation from engineering | — |
+| **Architecture Model** | Share rough model mapping groups and tech leads to components. Carried over from Feb 9, 2026 | 2/18 | [ ] | Draft the mapping doc and circulate for feedback | — | — |
 
 ### Tuesday (2/17)
 
-**Focus: Labs & Technical Reviews**
+**Focus: Project Review & Technical Reviews**
 
-- [ ] **Labs 2026 Proposal**: Keep pushing proposal forward
-    - Carried over from Feb 9, 2026
-    - Link: https://docs.google.com/document/d/...
-- [ ] **Schedule Emerson Labs 2026 review**
-    - Carried over from Feb 9, 2026
-- [ ] **Labs Error Rate**: Investigate persistent error rate
-    - Carried over from Feb 9, 2026
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
+| **Key Project Proposal** | Keep pushing proposal forward. Carried over from Feb 9, 2026 — https://docs.example.com/document/... | 2/17 | [ ] | Send doc to remaining stakeholders for sign-off | List of remaining approvers | — |
+| **Schedule stakeholder review** | Carried over from Feb 9, 2026 | 2/17 | [ ] | Send calendar invite to the stakeholder | Stakeholder's availability | — |
+| **Project Error Rate** | Investigate persistent error rate. Carried over from Feb 9, 2026 | 2/18 | [ ] | Pull error logs and check recent deploys | Access to error dashboard | — |
 
 ### Wednesday (2/18)
 
 **Focus: Product & Process Improvements**
 
-- [ ] **Dynamic Lecture Articles**: Follow up with Robin, Avery, Jamie
-    - Carried over from Feb 9, 2026
-- [ ] **Learning Systems Review**: Review learning paths, share resource
-    - Carried over from Feb 9, 2026
-- [ ] **Backlog Review**: Review backlog
-    - Carried over from Feb 9, 2026
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
+| **Feature Articles** | Follow up with teammates on progress. Carried over from Feb 9, 2026 | 2/18 | [ ] | Send status-check message to the team | — | — |
+| **Product Systems Review** | Review flows, share resource. Carried over from Feb 9, 2026 | 2/18 | [ ] | Read the shared resource and note takeaways | — | — |
+| **Backlog Review** | Review backlog. Carried over from Feb 9, 2026 | 2/19 | [ ] | Block time to go through backlog by priority | — | — |
 
 ### Thursday (2/19)
 
 **Focus: Innovation & Exploration**
 
-- [ ] **Agent-First Thinking**: Ideate on how to get teams thinking agent-first
-    - Carried over from Feb 9, 2026
-    - Review: https://x.com/gdb/status/...
-- [ ] **Data Platform Agentic App**: Try agentic app approach
-    - Carried over from Feb 9, 2026
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
+| **New-Approach Thinking** | Ideate on how to get teams thinking about new approaches. Carried over from Feb 9, 2026 — https://example.com/article | 2/19 | [ ] | Read the linked post and jot down 2-3 applicable ideas | — | — |
+| **Prototype Exploration** | Try a new prototype approach. Carried over from Feb 9, 2026 | 2/19 | [ ] | Scope a small proof-of-concept | — | — |
 
 ### Friday (2/20)
 
 **Focus: Wrap-up & Defect Resolution**
 
-- [ ] **Weekly Review**: Reflect on week's progress
-    - Carried over from Feb 9, 2026
-    - Review completed vs. planned tasks
-- [ ] **Defect LS-668**: Fix events being rejected
-    - Carried over from Feb 9, 2026
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
+| **Weekly Review** | Reflect on week's progress. Carried over from Feb 9, 2026 — review completed vs. planned tasks | 2/20 | [ ] | Use the weekly-review skill to generate the summary | — | — |
+| **Defect Fix** | Fix events being rejected. Carried over from Feb 9, 2026 | 2/20 | [ ] | Reproduce the rejection in staging first | Access to staging logs | — |
 
 ## Carried Over from Last Week (All Assigned Above)
 
@@ -384,9 +412,15 @@ All 17 incomplete tasks from Feb 9 have been distributed across the week by focu
 
 ## Notes-derived Action Items
 
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
+
 (Populate as week progresses)
 
 ## Tasks For Next Week (Feb 23)
+
+| Task | Description | Due Date | Done | Suggested Path to Resolve | What's Needed | What Was Learned |
+|------|-------------|----------|------|---------------------------|----------------|-------------------|
 
 ## Notes
 
@@ -402,11 +436,12 @@ All 17 incomplete tasks from Feb 9 have been distributed across the week by focu
 ## Best Practices
 
 - Always verify the date calculation is correct
-- Preserve task context and links when carrying over
-- Don't carry over completed tasks (marked with `[x]`)
-- Keep the structure consistent with previous weeks
+- Preserve task context and links when carrying over, folding them into the Description or Suggested Path to Resolve columns
+- Don't carry over completed tasks (rows whose `Done` column is `[x]`)
+- Keep the task table schema consistent across all sections and previous weeks
 - Include all relevant information from carried-over tasks
 - Consider grouping similar tasks together in the carried-over section
+- Never fabricate specifics for Suggested Path to Resolve or What's Needed — use `—` when nothing can be reasonably inferred
 
 ## Related Skills
 
